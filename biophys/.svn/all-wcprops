@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/!svn/ver/2035/iboardman/matlab/biophys
+END
+impedance.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/!svn/ver/976/iboardman/matlab/biophys/impedance.m
+END
+rlc_impedance_curve.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1262/iboardman/matlab/biophys/rlc_impedance_curve.m
+END
+multi_compartment_model.fig
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/!svn/ver/911/iboardman/matlab/biophys/multi_compartment_model.fig
+END
+scm_hh.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/!svn/ver/911/iboardman/matlab/biophys/scm_hh.m
+END
+alpha_m.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/!svn/ver/911/iboardman/matlab/biophys/alpha_m.m
+END
+heys_mec2sc.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/!svn/ver/911/iboardman/matlab/biophys/heys_mec2sc.m
+END
+rlc_impedance_model.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1577/iboardman/matlab/biophys/rlc_impedance_model.m
+END
+mec2sc_scm_syn.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/!svn/ver/1671/iboardman/matlab/biophys/mec2sc_scm_syn.m
+END
+subthld_osc_sys.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/!svn/ver/911/iboardman/matlab/biophys/subthld_osc_sys.m
+END
+subthld_osc_ini.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/!svn/ver/911/iboardman/matlab/biophys/subthld_osc_ini.m
+END
+singleEF_ode.mat
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/!svn/ver/911/iboardman/matlab/biophys/singleEF_ode.mat
+END
+scm_h_p.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/!svn/ver/911/iboardman/matlab/biophys/scm_h_p.m
+END
+subthresh_oscilln_cn.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/911/iboardman/matlab/biophys/subthresh_oscilln_cn.m
+END
+singleEF_cn.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/!svn/ver/911/iboardman/matlab/biophys/singleEF_cn.m
+END
+mec2sc_scm.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/!svn/ver/2035/iboardman/matlab/biophys/mec2sc_scm.m
+END
+run_subthresh_oscilln.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/!svn/ver/911/iboardman/matlab/biophys/run_subthresh_oscilln.m
+END
+zap_res_freq.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/!svn/ver/1808/iboardman/matlab/biophys/zap_res_freq.m
+END
+get_Vm.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/!svn/ver/1340/iboardman/matlab/biophys/get_Vm.m
+END
+subthresh_oscilln_ode.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/!svn/ver/911/iboardman/matlab/biophys/subthresh_oscilln_ode.m
+END
+single_compartment_model.fig
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/!svn/ver/911/iboardman/matlab/biophys/single_compartment_model.fig
+END
+singleEF_ode.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/!svn/ver/911/iboardman/matlab/biophys/singleEF_ode.m
+END
+multi_compartment_model.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/911/iboardman/matlab/biophys/multi_compartment_model.m
+END
+voltage_dependent_rates.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/911/iboardman/matlab/biophys/voltage_dependent_rates.m
+END
+vm_psd.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/!svn/ver/1479/iboardman/matlab/biophys/vm_psd.m
+END
+subthresh_oscilln.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/!svn/ver/911/iboardman/matlab/biophys/subthresh_oscilln.m
+END
+peak_freq.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/!svn/ver/2032/iboardman/matlab/biophys/peak_freq.m
+END
+JHeys_singleEF.m
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/!svn/ver/911/iboardman/matlab/biophys/JHeys_singleEF.m
+END
+heys_spike_mec2sc.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/1316/iboardman/matlab/biophys/heys_spike_mec2sc.m
+END
+scm_parm.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/!svn/ver/911/iboardman/matlab/biophys/scm_parm.m
+END
+zap_Q_dv.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/!svn/ver/1576/iboardman/matlab/biophys/zap_Q_dv.m
+END
+fft_mag.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/!svn/ver/1579/iboardman/matlab/biophys/fft_mag.m
+END
+HeysSingleEF_toIBoardman.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/911/iboardman/matlab/biophys/HeysSingleEF_toIBoardman.m
+END
+res_freq.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/!svn/ver/996/iboardman/matlab/biophys/res_freq.m
+END
+odeplot.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/!svn/ver/911/iboardman/matlab/biophys/odeplot.m
+END
+fransen_vdr.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/!svn/ver/911/iboardman/matlab/biophys/fransen_vdr.m
+END
+single_compartment_model.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/911/iboardman/matlab/biophys/single_compartment_model.m
+END
+singleEG_cn.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/!svn/ver/911/iboardman/matlab/biophys/singleEG_cn.m
+END
+vm_theta_psd.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/!svn/ver/2033/iboardman/matlab/biophys/vm_theta_psd.m
+END
+fft_peak.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/!svn/ver/911/iboardman/matlab/biophys/fft_peak.m
+END
+heys_vdr.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/!svn/ver/911/iboardman/matlab/biophys/heys_vdr.m
+END

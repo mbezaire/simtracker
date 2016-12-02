@@ -1,0 +1,26 @@
+
+myopath='/home/casem/repos/ca1/results/details/';
+
+traces=dir([mypath 'trace_pyramidalcell*']);
+data=importdata([myopath traces(1).name);
+data=data.data;
+
+for r=2:length(traces)
+    tmp=importdata([myopath traces(r).name]);
+    data(:,1+r)=tmp.data(:,2);
+end
+
+for r=1:length(data)
+    data(r,27)=mean(data(r,2:26)); % mean
+    data(r,28)=min(data(r,2:26));  % min
+    data(r,29)=max(data(r,2:26));  % max
+    data(r,30)=std(data(r,2:26));  % stdev
+end
+
+figure;plot(data(:,1),data(:,27));title('Mean');
+hold on
+plot(data(:,1),data(:,27)-data(:,30),'g')
+plot(data(:,1),data(:,27)+data(:,30),'g')
+plot(data(:,1),data(:,28),'r')
+plot(data(:,1),data(:,29),'r')
+set(gcf,'Color','w')

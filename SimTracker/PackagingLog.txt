@@ -1,0 +1,94 @@
+ant:
+<ant>
+  <mkdir dir="/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution" />
+  <mkdir dir="/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing" />
+  <mkdir dir="/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution_files_only" />
+</ant>
+mcc -o SimTracker -W main:SimTracker -T link:exe -d /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing -v /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/abfload.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/adderr2bar.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/addformatP.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/anovatukey.R -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/basictrace.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/biophys -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/bplot.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/CellSelected.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/changePS2PDF.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/checksurface.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/checksurfacelinux.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/compexp.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/countmyconmat.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/countmyconns.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/cummean.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/customizeraster.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/customout -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/decaytau.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/Diagram3Dmodel.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/docerr.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/ensureGUIfits.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/ephysFig2.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/eps2xxx.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/@ExpCell/ExpCell.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/exporttext2latex.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/expsyndata.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/fielddata.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/FinalMakePaperFigs.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/findjobj.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/firingrates.mat -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/formdata.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/GABAab.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/ganymed-ssh2-build250 -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/ganymed-ssh2-build250/ganymed-ssh2-build250.jar -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/gausseq.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getbackup.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getcurrepos.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/GetExecutableFolder.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getkinetics.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getoscphaseamp.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getperf.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getpos.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getready2runNRN.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getresultspikes.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/GetSimStorageFolder.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getsyns.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getThreshold.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/getwebsitedata.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/groupdata.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/handleME.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/hex2rgb.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/insetIPSCGABA.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/izh2atf.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/javaaddpathstatic.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/jobscript.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/jobscripts -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/KS08 -a '/Users/mariannebezaire/Documents/compilingarea/simtrackercode/license (2).txt' -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/license.txt -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/license_eps2xxx.txt -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/license_ps2pdf.txt -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/linear_fit.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/logplot.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/lowpasskaiser.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/metanal.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/mycontfft.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/mydisp.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/myionch.mat -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/mynewphaseshift.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/mynewphaseshiftLFP.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/mynormpdf.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/mystrfind.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/myversion.mat -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/networkcorrOrig.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/networkcrosscorr.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/NewRepos.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/nicecellcolor.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/nicechannelformat.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/outputtypes -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/paramsearchtool.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/perfgraphs.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/perfireratehist.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/perfireratehistLFP.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/pixelconmat.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/pixelmat.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/plot_tallysyns.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/plotCellClampRange.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/plotme.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/plotmebaronly.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/plotperf.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/print_channels.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/print_repos_id.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/print_website.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/printeps.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/progana.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/ps2pdf.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/readWCdata.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/RefreshList.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/retrieveglobals.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/rgb2hex.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/risetau.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/rotlabels.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/rundistcounts.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/save_globals_addpath.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/saveCells.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/saveglobals.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/saveRuns.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SDFwalkthru.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/searchRuns.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/setBins.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/setmachinemenu.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/settings -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/setvaldatasets.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/@SimRun/SimRun.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker.fig -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker.prj -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/ssh2_v2_m1_r4 -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/switchSimRun.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/tallysyns.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/test_IPSC.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/testBIOPHYSscript.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/testdel.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/TestSpectro.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/testy.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/timeestimate.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/tools -a '/Users/mariannebezaire/Documents/compilingarea/simtrackercode/Tools for Axis Label Alignment in 3D Plot' -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/trynewfilt.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/tryownres.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/Untitled.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/Untitled2.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/update_avail_outputs.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/update_saved_figs.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/updatemenu.m -a /Users/mariannebezaire/Documents/compilingarea/simtrackercode/usingABFload.m 
+[Warning: Name is nonexistent or not a directory: data] 
+Compiler version: 6.0 (R2015a)
+Dependency analysis by REQUIREMENTS.
+[Warning: Adding path
+"/Users/mariannebezaire/Documents/compilingarea/simtrackercode" to Compiler
+path instance.] 
+Parsing file "/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker.m"
+	(Referenced from: "Compiler Command Line").
+Deleting 66 temporary MEX authorization files.
+Removing: '/tmp/01cc883W6m9_7368.auth'.
+Removing: '/tmp/01cc84hAq2w_7368.auth'.
+Removing: '/tmp/01cc8mrvmse_7368.auth'.
+Removing: '/tmp/01cc8BHvja4_7368.auth'.
+Removing: '/tmp/01cc83mC2lC_7368.auth'.
+Removing: '/tmp/01cc898S1t2_7368.auth'.
+Removing: '/tmp/01cc8VoDPrm_7368.auth'.
+Removing: '/tmp/01cc8n6WZTL_7368.auth'.
+Removing: '/tmp/01cc8OpP3Ar_7368.auth'.
+Removing: '/tmp/01cc8HyiIwP_7368.auth'.
+Removing: '/tmp/01cc8isVyI7_7368.auth'.
+Removing: '/tmp/01cc8Wrmf7j_7368.auth'.
+Removing: '/tmp/01cc82SMloo_7368.auth'.
+Removing: '/tmp/01cc8zYikbs_7368.auth'.
+Removing: '/tmp/01cc8hqQNBt_7368.auth'.
+Removing: '/tmp/01cc8zuOjFa_7368.auth'.
+Removing: '/tmp/01cc8RNVS5f_7368.auth'.
+Removing: '/tmp/01cc8xE4qxq_7368.auth'.
+Removing: '/tmp/01cc8fyGsvT_7368.auth'.
+Removing: '/tmp/01cc8YZzK07_7368.auth'.
+Removing: '/tmp/01cc8jtsvxU_7368.auth'.
+Removing: '/tmp/01cc81GxDW0_7368.auth'.
+Removing: '/tmp/01cc8Yma5F8_7368.auth'.
+Removing: '/tmp/01cc8Z8atvk_7368.auth'.
+Removing: '/tmp/01cc8ut1eU4_7368.auth'.
+Removing: '/tmp/01cc8FYHs07_7368.auth'.
+Removing: '/tmp/01cc8onrSw4_7368.auth'.
+Removing: '/tmp/01cc807TG9o_7368.auth'.
+Removing: '/tmp/01cc8ET0avC_7368.auth'.
+Removing: '/tmp/01cc8nA39Do_7368.auth'.
+Removing: '/tmp/01cc8qVacVQ_7368.auth'.
+Removing: '/tmp/01cc8eWFXSZ_7368.auth'.
+Removing: '/tmp/01cc8PJLp2f_7368.auth'.
+Removing: '/tmp/01cc8kUMchN_7368.auth'.
+Removing: '/tmp/01cc8AhHzUW_7368.auth'.
+Removing: '/tmp/01cc8xzozG3_7368.auth'.
+Removing: '/tmp/01cc8Ps1Jew_7368.auth'.
+Removing: '/tmp/01cc8EtSfxq_7368.auth'.
+Removing: '/tmp/01cc8WEQxR5_7368.auth'.
+Removing: '/tmp/01cc8up3RV4_7368.auth'.
+Removing: '/tmp/01cc8vKV0JJ_7368.auth'.
+Removing: '/tmp/01cc8tEM505_7368.auth'.
+Removing: '/tmp/01cc8mE0saZ_7368.auth'.
+Removing: '/tmp/01cc8ax3lCI_7368.auth'.
+Removing: '/tmp/01cc8PBz202_7368.auth'.
+Removing: '/tmp/01cc8ZI94jS_7368.auth'.
+Removing: '/tmp/01cc8PVj1Fq_7368.auth'.
+Removing: '/tmp/01cc8vNhdUH_7368.auth'.
+Removing: '/tmp/01cc8hW2uc5_7368.auth'.
+Removing: '/tmp/01cc86fxb9F_7368.auth'.
+Removing: '/tmp/01cc8kcLbgm_7368.auth'.
+Removing: '/tmp/01cc8YlVyRb_7368.auth'.
+Removing: '/tmp/01cc8Phai8Q_7368.auth'.
+Removing: '/tmp/01cc8bQ4Dwv_7368.auth'.
+Removing: '/tmp/01cc8nQXrET_7368.auth'.
+Removing: '/tmp/01cc8MNmXfa_7368.auth'.
+Removing: '/tmp/01cc8YGT0Ao_7368.auth'.
+Removing: '/tmp/01cc8DRQQbs_7368.auth'.
+Removing: '/tmp/01cc8efQtA1_7368.auth'.
+Removing: '/tmp/01cc8KiHNQD_7368.auth'.
+Removing: '/tmp/01cc8dWUabT_7368.auth'.
+Removing: '/tmp/01cc8sy362O_7368.auth'.
+Removing: '/tmp/01cc8Ri66GW_7368.auth'.
+Removing: '/tmp/01cc8MSAQJc_7368.auth'.
+Removing: '/tmp/01cc81zTdA1_7368.auth'.
+Removing: '/tmp/01cc84j0DOr_7368.auth'.
+Generating file "/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/readme.txt".
+Generating file "/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/run_SimTracker.sh".
+Packaging...
+Adding custom icon /Applications/MATLAB_R2015a.app/toolbox/compiler/Resources/default_icon.icns to /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/SimTracker.app.
+Creating the bundle...
+Copying /Applications/MATLAB_R2015a.app/toolbox/compiler/maci64/setup.app to /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution/MyAppInstaller_web.app.
+Copying /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution/bundle.zip to /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution/MyAppInstaller_web.app/Contents/Resources/bundle.zip.
+Copying /var/folders/mg/fttwf5kn6_7bqnd7vwfbc1_80000gn/T/splash496599376239446342.tmp to /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution/MyAppInstaller_web.app/Contents/Resources/splash.png.
+Copying /Applications/MATLAB_R2015a.app/toolbox/compiler/Resources/default_icon.icns to /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution/MyAppInstaller_web.app/Contents/Resources/installer.icns.
+Web based installer created at /Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution/MyAppInstaller_web.app.
+Packaging complete.
+Elapsed packaging time was: 23 minutes and 43 seconds.

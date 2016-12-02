@@ -1,0 +1,380 @@
+%% Subthreshold oscillation simulation
+% Integrates hyperpolarization and persistent sodium currents in a
+% _single compartment model_ of a hippocampal stellate cell 
+% ( <http://www.ncbi.nlm.nih.gov/pubmed/15132436?dopt=abstract Fransen '04> ).
+% Plots and save results.
+
+%% Main function entry point
+function scm_h_p(varargin)
+% Integrate hyperpolarization and persistent sodium currents in a
+% "single compartment model," plot and save results
+% args: { p y }
+% p - structure with required parameters (default obtained from scm_parm)
+% y - optional initial conditions vector (default computed from Vm(t=0))
+% Results saved in 'scm_h_p.mat': time step vector, t; array of
+% state variables, y, one row per time step, with columns:
+% 1) membrane pot., 2) hyp'n channel fast and 3) slow actv'n, 
+% and, if using Fransen/Heys voltage dependences (see subfunction
+% heys_vdr [default], column 4 contains the persistent
+% sodium inactivation; the ion currents as a struct array; the
+% actual parameters used, p. The plot may be saved via the GUI or hgsave
+
+  [t y I p] = run(varargin);
+  save scm_h_p t y I p
+  do_plots(t, y, I);
+end
+
+function [t y I p] = run(args)
+% run simulation given args which may contain parameters p (struct)
+% and initial state y (vector); parameters default to scm_parm() and
+% initial state is computed from p.V_0 = Vm(t=0)
+% integration method given by p.solver may be any known
+% integrator method, either Matlab ODE solver or other provided by user
+% ('euler' and 'C_N' are defined below) 
+  % set starting values of state vector and update parameter structure
+  [y_0, p] = init(parse_cl(args));
+  % display starting values
+  disp(p)
+  y0 = struct('V', y_0(1), 'rf', y_0(2), 'rs', y_0(3));
+  if length(y_0) > 3, y0.hp = y_0(4), end;  % display
+
+  if isfield(p,'dt') && p.dt > 0
+    tspan = 0:p.dt:p.t_end;
+  else
+    tspan = [0 p.t_end];
+  end
+  % solver function arguments
+  a = { @dydt tspan y_0 };
+  use_ode = logical(strfind(p.solver, 'ode'));
+  if use_ode
+    a = [ a odeset('Refine', 1) ]; % ODE opts
+  else
+    assert(size(tspan,2) > 2, 'time step, 0 < dt < 1, required')
+  end
+  a = [ a p ];
+  % handle to desired solver
+  solver = str2func(p.solver);
+  % integrate system
+  clock_start = cputime;
+  if use_ode
+    s = solver(a{:});
+    if size(tspan,2) > 2
+      t = tspan;
+      y = deval(s, t)';
+    else
+      t = s.x';
+      y = s.y';
+    end
+  else
+    [ t y ] = solver(a{:});
+  end
+  disp({ 'elapsed CPU:', cputime - clock_start });
+  % display the final values
+  y_end = struct('V', y(end,1), 'rf', y(end,2), 'rs', y(end,3));
+  if size(y,2) > 3, y_end.hp = y(end,4), end;
+  % ion currents at evaluated time steps
+  I = ion_current(y, p);
+end
+
+function g = do_plots(t, y, I)
+% given time vector, state variable array (size(y,1) == length(t))
+% and ion currents (struct), plot Vm vs. t, H-current gates vs. t,
+% H and NaP currents vs. t and same currents vs. Vm in a single
+% figure, returning graphic handle 
+  sd = get(0,'ScreenSize');
+  g = figure('Position', [sd(1),sd(4)-sd(4)/2, .6*sd(3), .6*sd(4)]);
+  % membrane potential
+  subplot(2,2,1);
+  V = y(:,1);
+  % assume Vm starts near rest, scale if in millivolts
+  if abs(y(1,1)) < 1, V = 1000*V; end
+  plot(t,V);
+  xlabel('Time (sec)'); ylabel('V_m (mV)');
+  % H-current gates
+  subplot(2,2,2);
+  [a, h1, h2] = plotyy(t,log10(y(:,2)),t,y(:,3));
+  xlabel('time (sec)'); ylabel(a(1),'log gating'); ylabel(a(2),'gating');
+  % legend arguments are reversed with plotyy, who knows why?
+  l = legend([h1 h2], 'log(rf)', 'rs'); 
+  set(l, 'FontSize',8, 'Location', 'NorthWest');
+  % ion currents
+  subplot(2,2,3);
+  [a , h1, h2] = plotyy(t,I(:,1),t,I(:,2));
+  xlabel('time (sec)'); ylabel('current');
+  l = legend([h1 h2], 'I_H', 'I_NaP'); set(l, 'FontSize',8);
+  % I-V curves
+  subplot(2,2,4);
+  [a h1 h2] = plotyy(V,I(:,1),V,I(:,2));
+  xlabel('Vm (mV)'); ylabel('current');
+  l = legend([h1 h2], 'I_H', 'I_NaP'); set(l, 'FontSize',8);
+end
+
+function p = parse_cl(args)
+% args: cell optionally containing param struct, initial state vector
+% returns param structure (optional inital state is assigned to 'y_0')
+  if ~isempty(args)
+    p = args{1};
+    if length(args) > 1
+      p.y_0 = args{2};
+    end
+  else
+    p = scm_parm('Fransen');
+  end
+  assert(isstruct(p), help('scm_h_p'));
+end
+
+function [y, p] = init(p)
+% initialize and return state vector and updated parameter
+% (struct), given required parameter (struct); also sets initial
+% ion currents 
+  % voltage dependent rate functions
+  if ~isfield(p, 'vdr')
+    p.vdr = fransen_vdr;
+  else
+    p.vdr = eval(p.vdr);  % name of alternate function
+  end
+  % initial state
+  if isfield(p, 'y_0')
+    y = p.y_0;
+  else
+    V_0 = p.V_0;
+    y(1) = V_0;
+    vdr = p.vdr;
+    y(2) = vdr.rf_inf(V_0);
+    y(3) = vdr.rs_inf(V_0);
+    if isfield(p.vdr, 'q_inf')
+      y(4) = vdr.q_inf(V_0);  % Fransen/Heys integrates NaP inactiv'n
+    end
+  end
+end
+
+%%% Difference Equations
+% Method called by solver routines to integrate the dynamical system
+% The system is the membrane voltage (Vm), h-current and persistent Na current
+% channel gating variables.  The gating variables depend on Vm and Vm
+% depends on the currents determined by gating variables.
+% (see <http://www.ncbi.nlm.nih.gov/pubmed/16927211?dopt=abstract Rotstein'06>)
+function dy = dydt(t, y, par)
+% difference equations for model, may be called by Matlab ODE solver
+% Rotstein'04 Eq's 4 - 6, optionally also integrating NaP inactiv'n
+% returns difference vector
+% t - current time
+% y - current state variables vector
+% par - parameter structure
+  % state variables
+  V  = y(1);
+  rf = y(2);
+  rs = y(3);
+  nv = length(y);  % may be more state variables
+  vdr = par.vdr;  % voltage dependent rate functions
+
+  I_app = inj_current(t, par);
+  % noise term
+  if rand(1) > .97, N = 0.98; else N = 1; end
+  I = sum(ion_current(y, par)) + N * par.G_L * (V - par.V_L);
+
+  % difference equations
+  % membrane potential
+  dy(1,1) = (I_app - I) / par.C_m; 
+  % change in fast H-current gate
+  dy(2,1) = (vdr.rf_inf(V) - rf) / vdr.tau_rf(V); 
+  % change in slow H-current gate 
+  dy(3,1) = (vdr.rs_inf(V) - rs) / vdr.tau_rs(V); 
+  if nv > 3
+    % change in persistent sodium inactivation 
+    dy(4,1) = (vdr.q_inf(V) - y(4)) / vdr.tau_q(V);
+  end
+end
+
+function x = inj_current(t, p)
+% return applied current value
+% t -- current time
+% p.I_app -- applied current value
+% p.I_app_t -- optional [start end] injection interval times
+  if isfield(p, 'I_app_t') && ~isempty(p.I_app_t)
+    if length(p.I_app_t) == 1, p.I_app_t = [0 p.I_app_t]; end
+    if p.I_app_t(1) <= t && t < p.I_app_t(2)
+      x = p.I_app;
+    else
+      x = 0;
+    end
+  else
+    x = p.I_app;
+  end
+end
+
+function I = ion_current(y, p)
+% return ionic current array
+  I = zeros(size(y, 1), 2);
+  nv = size(y,2);
+  for i = 1:size(I,1)
+    V = y(i,1);
+    % H current
+    I(i,1) = (p.G_H_Fast_Max * y(i,2) + p.G_H_Slow_Max * y(i,3)) * (V - p.V_H);
+    % persistent sodium current
+    p_inf = p.vdr.p_inf(V); 
+    % integrating NaP inactiv'n
+    if nv > 3, p_inf = p_inf * y(i,4); end
+    I(i,2) = p.G_NaP_Max * p_inf * (V - p.V_NaP);
+  end
+end
+
+%%% Direct integration methods
+% Euler method integration
+function [t y] = euler(fcn, T, y0, p)
+% fcn - difference equations: @fcn(t, y, p), where t is current time,
+%   y is current state (vector), and p (struct) holds parameters
+% T - [start end] time
+% y0 - initial conditions (vector)
+% p - parameters passed to fcn
+% returns time vector, state variable array
+  if length(T) > 2
+    t = T;
+  else
+    t = T(1):p.dt:T(2);
+  end
+  y = zeros(length(t), length(y0));
+  y(1,:) = y0;
+  n = length(t) - 1;
+  for i = 1:n
+    y(i+1,:) = y(i,:) + p.dt * fcn(t(i), y(i,:), p)';
+  end
+end
+
+%%%
+% Crank-Nicolson
+%
+function [t y] = C_N(fcn, T, y0, p)
+% Crank-Nicolson (two-stage) integration method
+% fcn - difference equations: @fcn(t, y, p), where t is current time,
+%   y is current state (vector), and p (struct) holds parameters
+% T - [start end] time
+% y0 - initial conditions (vector)
+% p - parameters passed to fcn
+% returns time vector, state variable array
+  if length(T) > 2
+    t = T;
+  else
+    t = T(1):p.dt:T(2);
+  end
+  y = zeros(length(t), length(y0));
+  y(1,:) = y0;
+  n = length(t) - 1;
+  for i = 1:n
+    tmp = y(i,:) + (p.dt/2) * fcn(t(i), y(i,:), p)';
+    y(i+1,:) = y(i,:) + p.dt * fcn(t(i), tmp, p)';
+  end
+end
+
+%%% 
+% *Voltage dependent parameter equations*
+%
+% Sets of nested functions that provide instantaneous values of system
+% variables dependent only on the current membrane potential.
+%
+
+%%% Fransen voltage dependent parameter equations
+% From Fransen'04, p. 372, by way of Jim Heys. N.b.: volts rather than
+% millvolts. 
+function h = fransen_vdr
+% returns struct with function handles called from dydt()
+  h = struct('tau_q', @tau_NaP_inactv, 'q_inf', @NaP_inactv_inf, ...
+             'tau_rf', @tau_rf, 'rf_inf', @rf_inf, ...
+             'tau_rs', @tau_rs, 'rs_inf', @rs_inf, ...
+             'p_inf', @p_inf, 'p', @p);
+
+  function inf = p_inf(V)
+    inf = 1/(1 + exp(-(V + .0487)/.0044)); % "mP"
+  end
+  
+  function a = alpha_NaP_inactv(V)
+    a = (-2.88*V - .0491)/(1 - exp((V - .0491)/.00463));
+  end
+
+  function b = beta_NaP_inactv(V)
+    b = (6.94*V + .447)/(1 - exp(-(V + .447)/.00263));
+  end
+
+  function inf = NaP_inactv_inf(V)
+    inf = 1/(1+exp((V+.0488)/.00998));  % "hP"
+  end
+
+  % time constant in seconds
+  function tau = tau_NaP_inactv(V)
+    tau = 1/(alpha_NaP_inactv(V) + beta_NaP_inactv(V));
+  end
+
+  function p = p(V, q)
+    p = p_inf(V) * (NaP_inactv_inf(V) - q) / tau_NaP_inactv(V);
+  end
+    
+  % hyperpolarization channel
+  function inf = rf_inf(V)                         % mH_Fast_inf
+    %inf = (1 + exp((V + .0742)/.00978))^(-1.36);  % Fransen
+    inf = 1/(1 + (exp((V + .100)/.003)));          % from JH via MH
+  end
+
+  % time constant in seconds
+  function tau = tau_rf(V)
+    tau = 0.00051/(exp((V - .0017)/.01) + exp(-(V+.34)/.52));  % tauH_Fast
+  end
+
+  function inf = rs_inf(V)
+    inf = (1 + exp((V + .00283)/.0159))^(-58.5);            % mH_Slow_inf
+  end
+    
+  % time constant in seconds
+  function tau = tau_rs(V)
+    tau = 0.0056/(exp((V - .017)/.014) + exp(-(V+.260)/.043));     % tauH_Slow
+  end
+end
+
+%%% Rotstein'06 voltage dependent parameter equations
+function h = rotstein_vdr
+% returns struct with function handles called from dydt()
+  h = struct('exp_p', @exp_p, 'alpha_p', @alpha_p, 'beta_p', @beta_p, ...
+             'p_inf', @p_inf, 'tau_p', @tau_p, 'rf_inf', @rf_inf, ...
+             'tau_rf', @tau_rf, 'rs_inf', @rs_inf, 'tau_rs', @tau_rs);
+
+  function e = exp_p(V)
+    e = exp(-(V+38)/6.5);
+  end
+
+  function a = alpha_p(e)
+    a = 1/(0.15 * (1 + e));
+  end
+
+  function b = beta_p(e)
+    b = e * alpha_p(e);
+  end
+
+  function inf = p_inf(V)
+    %a = alpha_p(V, e);
+    %inf = a / (a + beta_p(V, e));
+    inf = 1/(1+exp_p(V));
+  end
+
+  function tau = tau_p(V, e)
+    %tau = 1/(alpha_p(V, e) + beta_p(V, e));
+    tau = 0.15;
+  end
+
+  % hyperpolarization channel
+  function inf = rf_inf(V)
+    inf = 1/(1 + exp((V + 79.2)/9.78));
+  end
+
+  function tau = tau_rf(V)
+    tau = 1 + 0.51/(exp((V - 1.7)/10) + exp(-(V+340)/52));
+  end
+
+  function inf = rs_inf(V)
+    inf = (1 + exp((V + 2.83)/15.9))^(-58);
+  end
+    
+  function tau = tau_rs(V)
+    tau = 1+ 5.6/(exp((V - 1.7)/14) + exp(-(V+260)/43));
+  end
+end
+%%% Reduced Fransen model simulation
+

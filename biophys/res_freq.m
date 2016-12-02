@@ -1,0 +1,29 @@
+function [res, Z, f, ModelFit] = res_freq(zap, Vm, zf, Fs)
+% compute the resonance frequencies from ZAP voltage responses
+% zap -- ZAP input signal (vector)
+% Vm -- array of waveforms, one per row (same length as zap)
+% zf -- maximum zap (input) freq.
+% Fs -- signal sample rate (Hz)
+% returns struct fields freq (peak frequency), imp (peak impedance) and fit
+% (model fit parameters), each a vector corresponding to the input
+% signals, and optionally the signal impedances and the frequency vector
+% res fields set to zero for waveforms containing spikes
+  %rng(0,'twister') % reset the random number generator before starting the impedance fcn that can call itself repeatedly.
+  if nargin < 4
+    Fs = 1e4;
+    if nargin < 3
+      zf = 20;
+    end
+  end    
+  l = size(Vm,1);
+  [Z f] = impedance(zap, Vm, Fs);
+  [r c] = ind2sub(size(Vm), find(Vm > 0)); % spikes
+  a = 1:l;
+  a = a(~ismember(a,unique(r))); % valid data sets
+  Fr = zeros(l,1);
+  Zr = zeros(l,1);
+  M = zeros(l,4);
+  [fr, zr, pr, ModelFit] = zap_res_freq(f, Z(a,:), zf);
+  Fr(a) = fr; Zr(a) = zr; M(a,:) = pr;
+  res = struct('freq',Fr,'imp',Zr,'fit',M);
+end

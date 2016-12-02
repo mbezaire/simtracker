@@ -1,0 +1,253 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="2329488726" file="/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker.prj" location="/Users/mariannebezaire/Documents/compilingarea/simtrackercode" name="SimTracker" preferred-package-location="/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_redistribution" preferred-package-type="package.type.app" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>SimTracker</param.appname>
+    <param.icon>${PROJECT_ROOT}/SimTracker_resources/icon.icns</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}/SimTracker_resources/icon_48.png</file>
+      <file>${PROJECT_ROOT}/SimTracker_resources/icon_32.png</file>
+      <file>${PROJECT_ROOT}/SimTracker_resources/icon_24.png</file>
+      <file>${PROJECT_ROOT}/SimTracker_resources/icon_16.png</file>
+    </param.icons>
+    <param.version>1.1</param.version>
+    <param.authnamewatermark>Marianne Bezaire</param.authnamewatermark>
+    <param.email>marianne.bezaire@gmail.com</param.email>
+    <param.company />
+    <param.summary>SimTracker is a parallel NEURON simulation management tool that supports the modeler at each step of the modeling workflow.</param.summary>
+    <param.description>SimTracker provides structured tracking of multiple NEURON model repositories, including their parameter sets, parameters and values, code versions, simulation configurations and results. It also assists with designing new simulations and parameter sets, execution of simulations locally and on supercomputers, uploading of results, standard and customized analyses of models and results, and importantly, organization of simulations, results and analyses. For more information, see: http://mariannebezaire.com/simtracker . SimTracker is open source software, covered by the MIT license.</param.description>
+    <param.screenshot>${PROJECT_ROOT}/SimTrackerSplash.png</param.screenshot>
+    <param.guid />
+    <param.net.saved.interface />
+    <param.installpath.string>/SimTracker/</param.installpath.string>
+    <param.installpath.combo>option.installpath.systemwideapp</param.installpath.combo>
+    <param.logo>${PROJECT_ROOT}/SimTrackerLogo.png</param.logo>
+    <param.install.notes />
+    <param.intermediate>${PROJECT_ROOT}/SimTracker/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/SimTracker/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/SimTracker/for_redistribution</param.output>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.embed.ctf>true</param.embed.ctf>
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.required.mcr.products>
+      <item>35000</item>
+      <item>35010</item>
+    </param.required.mcr.products>
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file>MyCompilerRunTimeLog</param.log.file>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.guid />
+      <param.net.saved.interface />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.embed.ctf />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/SimTracker.m</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}/@ExpCell/ExpCell.m</file>
+      <file>${PROJECT_ROOT}/@SimRun/SimRun.m</file>
+      <file>${PROJECT_ROOT}/CellSelected.m</file>
+      <file>${PROJECT_ROOT}/Diagram3Dmodel.m</file>
+      <file>${PROJECT_ROOT}/FinalMakePaperFigs.m</file>
+      <file>${PROJECT_ROOT}/GABAab.m</file>
+      <file>${PROJECT_ROOT}/GetExecutableFolder.m</file>
+      <file>${PROJECT_ROOT}/GetSimStorageFolder.m</file>
+      <file>${PROJECT_ROOT}/KS08</file>
+      <file>${PROJECT_ROOT}/NewRepos.m</file>
+      <file>${PROJECT_ROOT}/RefreshList.m</file>
+      <file>${PROJECT_ROOT}/SDFwalkthru.m</file>
+      <file>${PROJECT_ROOT}/SimTracker.fig</file>
+      <file>${PROJECT_ROOT}/SimTracker.m</file>
+      <file>${PROJECT_ROOT}/SimTracker.prj</file>
+      <file>${PROJECT_ROOT}/TestSpectro.m</file>
+      <file>${PROJECT_ROOT}/Tools for Axis Label Alignment in 3D Plot</file>
+      <file>${PROJECT_ROOT}/Untitled.m</file>
+      <file>${PROJECT_ROOT}/Untitled2.m</file>
+      <file>${PROJECT_ROOT}/abfload.m</file>
+      <file>${PROJECT_ROOT}/adderr2bar.m</file>
+      <file>${PROJECT_ROOT}/addformatP.m</file>
+      <file>${PROJECT_ROOT}/anovatukey.R</file>
+      <file>${PROJECT_ROOT}/basictrace.m</file>
+      <file>${PROJECT_ROOT}/biophys</file>
+      <file>${PROJECT_ROOT}/bplot.m</file>
+      <file>${PROJECT_ROOT}/changePS2PDF.m</file>
+      <file>${PROJECT_ROOT}/checkAndcommitParams.m</file>
+      <file>${PROJECT_ROOT}/checksurface.m</file>
+      <file>${PROJECT_ROOT}/checksurfacelinux.m</file>
+      <file>${PROJECT_ROOT}/compexp.m</file>
+      <file>${PROJECT_ROOT}/countmyconmat.m</file>
+      <file>${PROJECT_ROOT}/countmyconns.m</file>
+      <file>${PROJECT_ROOT}/cummean.m</file>
+      <file>${PROJECT_ROOT}/customizeraster.m</file>
+      <file>${PROJECT_ROOT}/customout</file>
+      <file>${PROJECT_ROOT}/cygwin.m</file>
+      <file>${PROJECT_ROOT}/decaytau.m</file>
+      <file>${PROJECT_ROOT}/decygwin.m</file>
+      <file>${PROJECT_ROOT}/docerr.m</file>
+      <file>${PROJECT_ROOT}/ensureGUIfits.m</file>
+      <file>${PROJECT_ROOT}/ephysFig2.m</file>
+      <file>${PROJECT_ROOT}/eps2xxx.m</file>
+      <file>${PROJECT_ROOT}/exporttext2latex.m</file>
+      <file>${PROJECT_ROOT}/expsyndata.m</file>
+      <file>${PROJECT_ROOT}/fielddata.m</file>
+      <file>${PROJECT_ROOT}/findjobj.m</file>
+      <file>${PROJECT_ROOT}/firingrates.mat</file>
+      <file>${PROJECT_ROOT}/formdata.m</file>
+      <file>${PROJECT_ROOT}/ganymed-ssh2-build250</file>
+      <file>${PROJECT_ROOT}/ganymed-ssh2-build250/ganymed-ssh2-build250.jar</file>
+      <file>${PROJECT_ROOT}/gausseq.m</file>
+      <file>${PROJECT_ROOT}/getThreshold.m</file>
+      <file>${PROJECT_ROOT}/getbackup.m</file>
+      <file>${PROJECT_ROOT}/getcurrepos.m</file>
+      <file>${PROJECT_ROOT}/getkinetics.m</file>
+      <file>${PROJECT_ROOT}/getoscphaseamp.m</file>
+      <file>${PROJECT_ROOT}/getpdfdata.m</file>
+      <file>${PROJECT_ROOT}/getperf.m</file>
+      <file>${PROJECT_ROOT}/getpos.m</file>
+      <file>${PROJECT_ROOT}/getready2runNRN.m</file>
+      <file>${PROJECT_ROOT}/getresultspikes.m</file>
+      <file>${PROJECT_ROOT}/getspikephase.m</file>
+      <file>${PROJECT_ROOT}/getsyns.m</file>
+      <file>${PROJECT_ROOT}/getwebsitedata.m</file>
+      <file>${PROJECT_ROOT}/groupdata.m</file>
+      <file>${PROJECT_ROOT}/handleME.m</file>
+      <file>${PROJECT_ROOT}/hex2rgb.m</file>
+      <file>${PROJECT_ROOT}/insetIPSCGABA.m</file>
+      <file>${PROJECT_ROOT}/izh2atf.m</file>
+      <file>${PROJECT_ROOT}/javaaddpathstatic.m</file>
+      <file>${PROJECT_ROOT}/jobscript.m</file>
+      <file>${PROJECT_ROOT}/jobscripts</file>
+      <file>${PROJECT_ROOT}/license (2).txt</file>
+      <file>${PROJECT_ROOT}/license.txt</file>
+      <file>${PROJECT_ROOT}/license_eps2xxx.txt</file>
+      <file>${PROJECT_ROOT}/license_ps2pdf.txt</file>
+      <file>${PROJECT_ROOT}/linear_fit.m</file>
+      <file>${PROJECT_ROOT}/logplot.m</file>
+      <file>${PROJECT_ROOT}/lowpasskaiser.m</file>
+      <file>${PROJECT_ROOT}/metanal.m</file>
+      <file>${PROJECT_ROOT}/mycontfft.m</file>
+      <file>${PROJECT_ROOT}/mydisp.m</file>
+      <file>${PROJECT_ROOT}/myionch.mat</file>
+      <file>${PROJECT_ROOT}/mynewphaseshift.m</file>
+      <file>${PROJECT_ROOT}/mynewphaseshiftLFP.m</file>
+      <file>${PROJECT_ROOT}/mynormpdf.m</file>
+      <file>${PROJECT_ROOT}/mystrfind.m</file>
+      <file>${PROJECT_ROOT}/myversion.mat</file>
+      <file>${PROJECT_ROOT}/networkcorrOrig.m</file>
+      <file>${PROJECT_ROOT}/networkcrosscorr.m</file>
+      <file>${PROJECT_ROOT}/nicecellcolor.m</file>
+      <file>${PROJECT_ROOT}/nicechannelformat.m</file>
+      <file>${PROJECT_ROOT}/outputtypes</file>
+      <file>${PROJECT_ROOT}/paramsearchtool.m</file>
+      <file>${PROJECT_ROOT}/perfgraphs.m</file>
+      <file>${PROJECT_ROOT}/perfireratehist.m</file>
+      <file>${PROJECT_ROOT}/perfireratehistLFP.m</file>
+      <file>${PROJECT_ROOT}/pixelconmat.m</file>
+      <file>${PROJECT_ROOT}/pixelmat.m</file>
+      <file>${PROJECT_ROOT}/plotCellClampRange.m</file>
+      <file>${PROJECT_ROOT}/plot_tallysyns.m</file>
+      <file>${PROJECT_ROOT}/plotme.m</file>
+      <file>${PROJECT_ROOT}/plotmebaronly.m</file>
+      <file>${PROJECT_ROOT}/plotperf.m</file>
+      <file>${PROJECT_ROOT}/print_channels.m</file>
+      <file>${PROJECT_ROOT}/print_pdf.m</file>
+      <file>${PROJECT_ROOT}/print_repos_id.m</file>
+      <file>${PROJECT_ROOT}/print_website.m</file>
+      <file>${PROJECT_ROOT}/printeps.m</file>
+      <file>${PROJECT_ROOT}/progana.m</file>
+      <file>${PROJECT_ROOT}/ps2pdf.m</file>
+      <file>${PROJECT_ROOT}/readWCdata.m</file>
+      <file>${PROJECT_ROOT}/retrieveglobals.m</file>
+      <file>${PROJECT_ROOT}/rgb2hex.m</file>
+      <file>${PROJECT_ROOT}/risetau.m</file>
+      <file>${PROJECT_ROOT}/rotlabels.m</file>
+      <file>${PROJECT_ROOT}/rundistcounts.m</file>
+      <file>${PROJECT_ROOT}/saveCells.m</file>
+      <file>${PROJECT_ROOT}/saveRuns.m</file>
+      <file>${PROJECT_ROOT}/save_globals_addpath.m</file>
+      <file>${PROJECT_ROOT}/saveglobals.m</file>
+      <file>${PROJECT_ROOT}/searchRuns.m</file>
+      <file>${PROJECT_ROOT}/setBins.m</file>
+      <file>${PROJECT_ROOT}/setPaths.m</file>
+      <file>${PROJECT_ROOT}/setmachinemenu.m</file>
+      <file>${PROJECT_ROOT}/settings</file>
+      <file>${PROJECT_ROOT}/setvaldatasets.m</file>
+      <file>${PROJECT_ROOT}/ssh2_v2_m1_r4</file>
+      <file>${PROJECT_ROOT}/switchSimRun.m</file>
+      <file>${PROJECT_ROOT}/tallysyns.m</file>
+      <file>${PROJECT_ROOT}/testBIOPHYSscript.m</file>
+      <file>${PROJECT_ROOT}/test_IPSC.m</file>
+      <file>${PROJECT_ROOT}/testdel.m</file>
+      <file>${PROJECT_ROOT}/testy.m</file>
+      <file>${PROJECT_ROOT}/timeestimate.m</file>
+      <file>${PROJECT_ROOT}/tools</file>
+      <file>${PROJECT_ROOT}/trynewfilt.m</file>
+      <file>${PROJECT_ROOT}/tryownres.m</file>
+      <file>${PROJECT_ROOT}/update_avail_outputs.m</file>
+      <file>${PROJECT_ROOT}/update_saved_figs.m</file>
+      <file>${PROJECT_ROOT}/updatemenu.m</file>
+      <file>${PROJECT_ROOT}/usingABFload.m</file>
+    </fileset.resources>
+    <fileset.package>
+      <file>${PROJECT_ROOT}/SimTrackerManual.pdf</file>
+      <file>${PROJECT_ROOT}/cellfiles</file>
+      <file>${PROJECT_ROOT}/default_icon.icns</file>
+      <file>${PROJECT_ROOT}/defaults</file>
+      <file>${PROJECT_ROOT}/ganymed-ssh2-build250</file>
+      <file>${PROJECT_ROOT}/ssh2_v2_m1_r4</file>
+      <file>${PROJECT_ROOT}/uuid.vbs</file>
+    </fileset.package>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}/SimTracker/for_testing" name="splash.png" optional="false">/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/SimTracker/for_testing" name="readme.txt" optional="true">/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/SimTracker/for_testing" name="run_SimTracker.sh" optional="false">/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/run_SimTracker.sh</file>
+      <file location="${PROJECT_ROOT}/SimTracker/for_testing" name="SimTracker.app" optional="false">/Users/mariannebezaire/Documents/compilingarea/simtrackercode/SimTracker/for_testing/SimTracker.app</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2015a.app</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.10.5</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
